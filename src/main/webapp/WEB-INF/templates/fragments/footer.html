@@ -1,0 +1,12 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <footer th:fragment="footer" class="footer">
+        <div class="container">
+            <!-- Using #dates : utility methods for java.util.Date objects: -->
+            <span class="text-muted">Codeup blog &copy; <span th:text="${#dates.year(#dates.createNow())}"></span></span>
+        </div>
+    </footer>
+</body>
+</html>
+
