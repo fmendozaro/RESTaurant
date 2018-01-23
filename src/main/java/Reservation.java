@@ -14,6 +14,13 @@ public class Reservation {
         this.time = time;
     }
 
+    public Reservation(long userId, int num_people, String date, String time) {
+        this.userId = userId;
+        this.num_people = num_people;
+        this.date = date;
+        this.time = time;
+    }
+
     public long getId() {
         return id;
     }

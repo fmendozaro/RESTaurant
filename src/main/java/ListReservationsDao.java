@@ -6,12 +6,12 @@ public class ListReservationsDao implements Reservations {
 
     public List<Reservation> all() {
         if (reservations == null) {
-            reservations = generateAds();
+            reservations = generateExamples();
         }
         return reservations;
     }
 
-    private List<Reservation> generateAds() {
+    private List<Reservation> generateExamples() {
         List<Reservation> reservations = new ArrayList<>();
 
         reservations.add(new Reservation(
@@ -43,5 +43,16 @@ public class ListReservationsDao implements Reservations {
                 "21:30:00"
         ));
         return reservations;
+    }
+
+    public Long insert(Reservation rsv){
+        // Make sure there's examples first
+        if(reservations == null){
+            reservations = generateExamples();
+        }
+        // We'll assign an "id" here based on the size of the list, in the future the DB will handle this id automatically
+        rsv.setId(reservations.size());
+        reservations.add(rsv);
+        return rsv.getId();
     }
 }
