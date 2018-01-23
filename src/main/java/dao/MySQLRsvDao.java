@@ -1,3 +1,7 @@
+package dao;
+
+import models.Reservation;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

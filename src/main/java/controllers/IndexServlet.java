@@ -1,3 +1,5 @@
+package controllers;
+
 import config.TemplateEngineUtil;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;

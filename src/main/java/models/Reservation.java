@@ -1,3 +1,5 @@
+package models;
+
 public class Reservation {
 
     private long id;

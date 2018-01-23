@@ -1,3 +1,5 @@
+package dao;
+
 public class DaoFactory {
     private static Reservations reservationsDao;
 
