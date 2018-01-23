@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS restaurant_db;
+
+USE restaurant_db;
+
+DROP TABLE IF EXISTS reservations;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  username VARCHAR(240) NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  email VARCHAR(240) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  phone VARCHAR(20),
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE reservations (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  num_people int NOT NULL,
+  date DATE NOT NULL,
+  time TIME NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+    ON DELETE CASCADE
+);
