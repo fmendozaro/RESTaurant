@@ -3,7 +3,7 @@ public class DaoFactory {
 
     public static Reservations getReservationsDao() {
         if (reservationsDao == null) {
-            reservationsDao = new ListReservationsDao();
+            reservationsDao = new MySQLRsvDao();
         }
         return reservationsDao;
     }
