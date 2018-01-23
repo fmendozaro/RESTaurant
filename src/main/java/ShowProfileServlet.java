@@ -12,6 +12,8 @@ public class ShowProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Reservation> reservations = DaoFactory.getReservationsDao().all();
+        request.setAttribute("reservations", reservations);
         request.getRequestDispatcher("/profile.html").forward(request, response);
     }
 }
