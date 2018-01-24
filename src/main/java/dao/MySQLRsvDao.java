@@ -9,13 +9,13 @@ import java.util.List;
 public class MySQLRsvDao implements Reservations {
     private Connection connection = null;
 
-    public MySQLRsvDao() {
+    public MySQLRsvDao(Config config) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/restaurant_db",
-                    "root",
-                    "codeup"
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
