@@ -26,10 +26,10 @@ public class MySQLRsvDao implements Reservations {
 
     @Override
     public List<Reservation> all() {
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         try {
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM reservations");
+            stmt = connection.prepareStatement("SELECT * FROM reservations");
+            ResultSet rs = stmt.executeQuery();
             return createReservationsFromResult(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all reservations.", e);
@@ -38,9 +38,16 @@ public class MySQLRsvDao implements Reservations {
 
     @Override
     public Long insert(Reservation rsv) {
+
+        String insertQuery = "INSERT INTO reservations(user_id, num_people, date, time) VALUES (?, ?, ?, ?)";
+
         try {
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(rsv), Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, rsv.getUserId());
+            stmt.setInt(2, rsv.getNum_people());
+            stmt.setString(3, rsv.getDate());
+            stmt.setString(4, rsv.getTime());
+            stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             // We use this to make sure we have the first Result
             rs.next();
@@ -48,14 +55,6 @@ public class MySQLRsvDao implements Reservations {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new reservation.", e);
         }
-    }
-
-    private String createInsertQuery(Reservation rsv) {
-        return "INSERT INTO reservations(user_id, num_people, date, time) VALUES "
-                + "(" + rsv.getUserId() + ", "
-                + "'" + rsv.getNum_people() +"', "
-                + "'" + rsv.getDate() +"', "
-                + "'" + rsv.getTime() + "')";
     }
 
     private Reservation extractReservation(ResultSet rs) throws SQLException {
