@@ -24,5 +24,5 @@ CREATE TABLE reservations (
   time TIME NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users(id)
-    ON DELETE CASCADE
+    ON DELETE RESTRICT
 );
