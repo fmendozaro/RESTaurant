@@ -60,9 +60,9 @@ public class MySQLUsersDao implements Users {
                 rs.getLong("id"),
                 rs.getString("username"),
                 rs.getString("email"),
-                rs.getString("password"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
+                rs.getString("password"),
                 rs.getString("phone")
         );
     }
