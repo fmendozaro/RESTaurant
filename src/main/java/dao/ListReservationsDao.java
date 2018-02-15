@@ -15,6 +15,11 @@ public class ListReservationsDao implements Reservations {
         return reservations;
     }
 
+    @Override
+    public List<Reservation> findByUserId(Long userId) {
+        return null;
+    }
+
     private List<Reservation> generateExamples() {
         List<Reservation> reservations = new ArrayList<>();
 

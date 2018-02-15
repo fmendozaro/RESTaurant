@@ -1,6 +1,7 @@
 package controllers;
 
 import dao.DaoFactory;
+import dao.User;
 import models.Reservation;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,10 @@ public class ShowProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        List<Reservation> reservations = DaoFactory.getReservationsDao().all();
+
+        User loggedUser = (User) request.getSession().getAttribute("user");
+
+        List<Reservation> reservations = DaoFactory.getReservationsDao().findByUserId(loggedUser.getId());
         request.setAttribute("reservations", reservations);
         request.getRequestDispatcher("/profile.html").forward(request, response);
     }

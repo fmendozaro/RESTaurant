@@ -37,6 +37,19 @@ public class MySQLRsvDao implements Reservations {
     }
 
     @Override
+    public List<Reservation> findByUserId(Long userId) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM reservations where user_id = ?");
+            stmt.setLong(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            return createReservationsFromResult(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving the reservation.", e);
+        }
+    }
+
+    @Override
     public Long insert(Reservation rsv) {
 
         String insertQuery = "INSERT INTO reservations(user_id, num_people, date, time) VALUES (?, ?, ?, ?)";
