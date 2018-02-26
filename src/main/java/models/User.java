@@ -1,4 +1,6 @@
-package dao;
+package models;
+
+import utils.Password;
 
 public class User {
     private long id;
@@ -14,7 +16,7 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        setPassword(password);
         this.phone = phone;
     }
 
@@ -57,7 +59,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = Password.hash(password);
     }
 
     public String getPhone() {
