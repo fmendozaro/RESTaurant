@@ -2,6 +2,7 @@ package controllers;
 
 import dao.DaoFactory;
 import models.Reservation;
+import models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +24,9 @@ public class CreateReservationServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user = (User) request.getSession().getAttribute("user");
         Reservation rsv = new Reservation(
-                1, // for now we'll hardcode the user id
+                user.getId(), // for now we'll hardcode the user id
                 Integer.parseInt(request.getParameter("num_people")),
                 request.getParameter("date"),
                 request.getParameter("time")
