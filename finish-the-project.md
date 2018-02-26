@@ -70,6 +70,8 @@ instructors for guidance on feature scope.
 
     Create the `orders, items, orders_items` tables and implement all the backend logic necessary to
     allow the user to menu items online.
+    
+    Create a way to add menu items to the DB and edit them, having a seeder for menu items is a good idea to have something to start with.
 
 - Make it pretty!
 
