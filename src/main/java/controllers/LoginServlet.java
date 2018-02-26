@@ -2,6 +2,7 @@ package controllers;
 
 import dao.DaoFactory;
 import models.User;
+import utils.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        boolean validAttempt = password.equals(user.getPassword());
+        boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
