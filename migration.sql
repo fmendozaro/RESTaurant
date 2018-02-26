@@ -47,6 +47,7 @@ CREATE TABLE orders(
   tip DECIMAL(10,2) NOT NULL,
   total DECIMAL(10,2) NOT NULL,
   user_id INT UNSIGNED NOT NULL,
+  status INT NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT
 );
