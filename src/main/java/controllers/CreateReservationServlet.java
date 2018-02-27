@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet(name = "controllers.CreateReservationServlet", urlPatterns = "/reservations/create")
 public class CreateReservationServlet extends HttpServlet {
@@ -25,12 +28,25 @@ public class CreateReservationServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+        Date date = null, time = null;
+
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
+            time = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(date);
+        System.out.println(time);
+
         Reservation rsv = new Reservation(
-                user.getId(), // for now we'll hardcode the user id
+                user, // for now we'll hardcode the user id
                 Integer.parseInt(request.getParameter("num_people")),
-                request.getParameter("date"),
-                request.getParameter("time")
+                date,
+                time
         );
+
         DaoFactory.getReservationsDao().insert(rsv);
         response.sendRedirect("/profile");
     }
