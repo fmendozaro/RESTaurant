@@ -1,23 +1,40 @@
 package models;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "reservations")
 public class Reservation {
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long userId;
-    private int num_people;
-    private String date;
-    private String time;
 
-    public Reservation(long id, long userId, int num_people, String date, String time) {
+    @Column(nullable = false)
+    private int num_people;
+
+    @Column(nullable = false)
+    private Date date;
+
+    @Column(nullable = false)
+    private Date time;
+
+    @ManyToOne
+    private User user;
+
+    public Reservation() {
+    }
+
+    public Reservation(long id, User user, int num_people, Date date, Date time) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.num_people = num_people;
         this.date = date;
         this.time = time;
     }
 
-    public Reservation(long userId, int num_people, String date, String time) {
-        this.userId = userId;
+    public Reservation(User user, int num_people, Date date, Date time) {
+        this.user = user;
         this.num_people = num_people;
         this.date = date;
         this.time = time;
@@ -31,14 +48,6 @@ public class Reservation {
         this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
     public int getNum_people() {
         return num_people;
     }
@@ -47,19 +56,27 @@ public class Reservation {
         this.num_people = num_people;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
