@@ -1,6 +1,7 @@
 package controllers;
 
 import config.TemplateEngineUtil;
+import dao.DaoFactory;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -19,6 +20,9 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//        Makes sure it the DaoFactory runs
+        DaoFactory.getUsersDao();
 
         List<String> names = Arrays.asList("Fer", "Justin", "Luis", "Ryan", "Zach");
 
