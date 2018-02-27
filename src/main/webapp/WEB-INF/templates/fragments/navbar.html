@@ -8,15 +8,22 @@
                 <a class="navbar-brand" href="/">
                     <img class="float-left" src="/assets/imgs/molcajete.png" alt="Taquero Mucho">
                 </a>
-                Taquero Mucho
+                <h5>Taquero Mucho</h5>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/profile">Your account</a></li>
-                <li><a href="/order">Order Online</a></li>
-                <li><a href="/reservations/create">Make Reservation</a></li>
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/logout">Logout</a></li>
+
+                <th:block th:if="${session.user}">
+                    <li><a href="/profile">Your account</a></li>
+                    <li><a href="/reservations/create">Make Reservation</a></li>
+                    <li><a href="/order">Order Online</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </th:block>
+
+                <th:block th:if="${!session.user}">
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                </th:block>
+
             </ul>
         </div>
     </nav>
