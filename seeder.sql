@@ -9,7 +9,7 @@ INSERT INTO reservations (num_people, date, time, user_id) VALUES (4, adddate(cu
 INSERT INTO reservations (num_people, date, time, user_id) VALUES (3, adddate(current_date(), 10), curtime(), 3);
 INSERT INTO reservations (num_people, date, time, user_id) VALUES (8, adddate(current_date(), 10), curtime(), 1);
 
-INSERT INTO items (name, price, img_url) VALUES ('Pozole', 7.99, 'pozole.jpg');
-INSERT INTO items (name, price, img_url) VALUES ('Pastor tacos', 5.99, 'pastor.jpg');
-INSERT INTO items (name, price, img_url) VALUES ('Enchiladas', 9.99, 'michoacanas.jpg');
-INSERT INTO items (name, price, img_url) VALUES ('Sopa Azteca', 6.99, 'sopa.jpg');
+INSERT INTO items (name, price, url) VALUES ('Pozole', 7.99, 'pozole.jpg');
+INSERT INTO items (name, price, url) VALUES ('Pastor tacos', 5.99, 'pastor.jpg');
+INSERT INTO items (name, price, url) VALUES ('Enchiladas', 9.99, 'michoacanas.jpg');
+INSERT INTO items (name, price, url) VALUES ('Sopa Azteca', 6.99, 'sopa.jpg');
