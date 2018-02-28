@@ -25,7 +25,7 @@
                 <tr th:each="rsv : ${reservations}">
                     <td th:text="${rsv.id}"></td>
                     <td th:text="${rsv.num_people}"></td>
-                    <td th:text="${#dates.format(rsv.date, 'MMMM dd yyyy')}"></td>
+                    <td th:text="${#dates.format(rsv.date, 'MM-dd-yyyy')}"></td>
                     <td th:text="${#dates.format(rsv.time, 'hh:mm a')}"></td>
                 </tr>
                 </tbody>
