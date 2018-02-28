@@ -1,31 +1,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-    <nav th:fragment="mainNav" class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">
-                    <img class="float-left" src="/assets/imgs/molcajete.png" alt="Taquero Mucho">
-                </a>
-                <h5>Taquero Mucho</h5>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
+    <nav th:fragment="mainNav" class="navbar navbar-expand-lg navbar-light stickies">
+        <a class="navbar-brand text-white" href="/">
+            <img src="/assets/imgs/molcajete.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Taquero Mucho
+        </a>
 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
                 <th:block th:if="${session.user}">
-                    <li><a href="/profile">Your account</a></li>
-                    <li><a href="/reservations/create">Make Reservation</a></li>
-                    <li><a href="/order">Order Online</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/profile">Your account</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/reservations/create">Make Reservation</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/order">Order Online</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/logout">Logout</a></li>
                 </th:block>
 
                 <th:block th:if="${!session.user}">
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/login">Login</a></li>
                 </th:block>
-
             </ul>
+            <th:block th:if="${session.user}">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </th:block>
         </div>
+
     </nav>
 </body>
 </html>
