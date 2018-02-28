@@ -1,7 +1,6 @@
 package models;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -19,23 +18,23 @@ public class Order {
     private Date deliveryTime;
 
     @Column(nullable = false, precision=10, scale=2)
-    private BigDecimal subtotal;
+    private Double subtotal;
 
     @Column(nullable = false, precision=10, scale=2)
-    private BigDecimal tax;
+    private Double tax;
 
     @Column(nullable = false, precision=10, scale=2)
-    private BigDecimal tip;
+    private Double tip;
 
     @Column(nullable = false, precision=10, scale=2)
-    private BigDecimal total;
+    private Double total;
 
     @ManyToOne
     private User user;
 
     public Order(){}
 
-    public Order(Date orderDate, Date deliveryTime, BigDecimal subtotal, BigDecimal tax, BigDecimal tip, BigDecimal total, User user) {
+    public Order(Date orderDate, Date deliveryTime, Double subtotal, Double tax, Double tip, Double total, User user) {
         this.orderDate = orderDate;
         this.deliveryTime = deliveryTime;
         this.subtotal = subtotal;
@@ -69,35 +68,35 @@ public class Order {
         this.deliveryTime = deliveryTime;
     }
 
-    public BigDecimal getSubtotal() {
+    public Double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(BigDecimal subtotal) {
+    public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
     }
 
-    public BigDecimal getTax() {
+    public Double getTax() {
         return tax;
     }
 
-    public void setTax(BigDecimal tax) {
+    public void setTax(Double tax) {
         this.tax = tax;
     }
 
-    public BigDecimal getTip() {
+    public Double getTip() {
         return tip;
     }
 
-    public void setTip(BigDecimal tip) {
+    public void setTip(Double tip) {
         this.tip = tip;
     }
 
-    public BigDecimal getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
