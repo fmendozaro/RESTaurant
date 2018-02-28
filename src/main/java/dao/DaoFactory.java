@@ -6,6 +6,8 @@ import utils.HibernateUtil;
 public class DaoFactory {
     private static Reservations reservationsDao;
     private static Users usersDao;
+    private static Orders ordersDao;
+    private static Items itemsDao;
     private static Session session = HibernateUtil.openSession();
 
     public static Reservations getReservationsDao() {
@@ -20,5 +22,19 @@ public class DaoFactory {
             usersDao = new HQLUserDao(session);
         }
         return usersDao;
+    }
+
+    public static Orders getOrdersDao() {
+        if(ordersDao == null){
+            ordersDao = new HQLOrdersDao(session);
+        }
+        return ordersDao;
+    }
+
+    public static Items getItemsDao() {
+        if(itemsDao == null){
+            itemsDao = new HQLItemsDao(session);
+        }
+        return itemsDao;
     }
 }
