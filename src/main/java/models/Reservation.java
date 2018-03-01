@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class Reservation {
     private Date date;
 
     @Column(nullable = false)
-    private Date time;
+    private Time time;
 
     @ManyToOne
     private User user;
@@ -25,7 +26,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(long id, User user, int num_people, Date date, Date time) {
+    public Reservation(long id, User user, int num_people, Date date, Time time) {
         this.id = id;
         this.user = user;
         this.num_people = num_people;
@@ -33,7 +34,7 @@ public class Reservation {
         this.time = time;
     }
 
-    public Reservation(User user, int num_people, Date date, Date time) {
+    public Reservation(User user, int num_people, Date date, Time time) {
         this.user = user;
         this.num_people = num_people;
         this.date = date;
@@ -68,7 +69,7 @@ public class Reservation {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 
