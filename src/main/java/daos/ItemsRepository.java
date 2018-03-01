@@ -1,19 +1,18 @@
-package dao;
+package daos;
 
 
 import models.Item;
-import models.Order;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
 @SuppressWarnings("unchecked")
-public class HQLItemsDao implements Items {
+public class ItemsRepository implements Items {
 
     private final Session session;
 
-    public HQLItemsDao(Session session) {
+    public ItemsRepository(Session session) {
         this.session = session;
     }
 

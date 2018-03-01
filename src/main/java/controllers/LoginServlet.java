@@ -1,8 +1,8 @@
 package controllers;
 
-import dao.DaoFactory;
+import daos.DaoFactory;
 import models.User;
-import utils.Password;
+import authentication.Password;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

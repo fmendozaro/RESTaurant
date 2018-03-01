@@ -1,6 +1,6 @@
 package controllers;
 
-import dao.DaoFactory;
+import daos.DaoFactory;
 import models.Reservation;
 import models.User;
 
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,11 +29,11 @@ public class CreateReservationServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
-        Date date = null, time = null;
+        Date date = null;Time time = null;
 
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-            time = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+//            time = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
         } catch (ParseException e) {
             e.printStackTrace();
         }

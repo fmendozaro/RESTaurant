@@ -1,10 +1,8 @@
 package controllers;
 
-import com.sun.tools.javac.jvm.Items;
-import dao.DaoFactory;
+import daos.DaoFactory;
 import models.Item;
 import models.Order;
-import models.Reservation;
 import models.User;
 import org.joda.time.DateTime;
 
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

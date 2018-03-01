@@ -1,6 +1,6 @@
 package controllers;
 
-import dao.DaoFactory;
+import daos.DaoFactory;
 import models.User;
 import models.Reservation;
 

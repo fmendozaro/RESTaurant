@@ -1,6 +1,6 @@
 package models;
 
-import utils.Password;
+import authentication.Password;
 
 import javax.persistence.*;
 import java.util.List;

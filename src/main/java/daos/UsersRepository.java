@@ -1,16 +1,15 @@
-package dao;
+package daos;
 
 
 import models.User;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-public class HQLUserDao implements Users {
+public class UsersRepository implements Users {
 
     private final Session session;
 
-    public HQLUserDao(Session session) {
+    public UsersRepository(Session session) {
         this.session = session;
     }
 

@@ -1,19 +1,18 @@
-package dao;
+package daos;
 
 
 import models.Reservation;
-import models.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
 @SuppressWarnings("unchecked")
-public class HQLReservationsDao implements Reservations {
+public class ReservationsRepository implements Reservations {
 
     private final Session session;
 
-    public HQLReservationsDao(Session session) {
+    public ReservationsRepository(Session session) {
         this.session = session;
     }
 

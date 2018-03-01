@@ -1,7 +1,6 @@
-package dao;
+package daos;
 
 import models.Item;
-import models.Order;
 
 import java.util.List;
 

@@ -1,20 +1,18 @@
-package dao;
+package daos;
 
 
 import models.Order;
-import models.Reservation;
-import models.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.List;
 
 @SuppressWarnings("unchecked")
-public class HQLOrdersDao implements Orders {
+public class OrdersRepository implements daos.Orders {
 
     private final Session session;
 
-    public HQLOrdersDao(Session session) {
+    public OrdersRepository(Session session) {
         this.session = session;
     }
 
