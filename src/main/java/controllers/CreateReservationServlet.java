@@ -1,5 +1,6 @@
 package controllers;
 
+import authorization.Auth;
 import daos.DaoFactory;
 import models.Reservation;
 import models.User;
@@ -15,25 +16,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "controllers.CreateReservationServlet", urlPatterns = "/reservations/create")
+@WebServlet(urlPatterns = "/reservations/create")
 public class CreateReservationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
-            return;
-        }
+
+//        if(!Auth.isLogged(request)){
+//            response.sendRedirect("/login");
+//            return;
+//        }
+
         request.getRequestDispatcher("/reservations/create.html")
                 .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = (User) request.getSession().getAttribute("user");
+
+        User user = Auth.getLoggedUser(request);
         Date date = null;Time time = null;
 
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-//            time = new SimpleDateFormat("HH:mm").parse(request.getParameter("time"));
+            time = Time.valueOf(request.getParameter("time"));
         } catch (ParseException e) {
             e.printStackTrace();
         }

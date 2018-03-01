@@ -16,7 +16,6 @@ public class ItemsRepository implements Items {
         this.session = session;
     }
 
-
     @Override
     public List<Item> all() {
         Query qry = session.createQuery("from Item");

@@ -1,5 +1,6 @@
 package controllers;
 
+import authorization.Auth;
 import daos.DaoFactory;
 import models.Item;
 import models.Order;
@@ -17,14 +18,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "controllers.CreateReservationServlet", urlPatterns = "/orders/create")
+@WebServlet(urlPatterns = "/orders/create")
 public class CreateOrderServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        if (request.getSession().getAttribute("user") == null) {
-//            response.sendRedirect("/login");
-//            return;
-//        }
+
+        if(!Auth.isLogged(request)){
+            response.sendRedirect("/login");
+            return;
+        }
+
         List<Item> menuItems = DaoFactory.getItemsDao().all();
         request.getSession().setAttribute("menuItems", menuItems);
         request.getRequestDispatcher("/orders/create.html")
@@ -32,7 +35,8 @@ public class CreateOrderServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = (User) request.getSession().getAttribute("user");
+
+        User user = Auth.getLoggedUser(request);
 
         Date orderDate = new DateTime().toDate(), deliveryTime = null;
         Double subtotal = Double.parseDouble(request.getParameter("subtotal"));
