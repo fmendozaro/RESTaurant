@@ -19,6 +19,7 @@
                     <th>Number of Guests</th>
                     <th>Date</th>
                     <th>Time</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,10 @@
                     <td th:text="${rsv.num_people}"></td>
                     <td th:text="${#dates.format(rsv.date, 'MM-dd-yyyy')}"></td>
                     <td th:text="${#dates.format(rsv.time, 'hh:mm a')}"></td>
+                    <td>
+                        <a id="edit-rsv" class="btn btn-warning" href="#">Edit</a>
+                        <a id="cancel-rsv" class="btn btn-danger" href="#">Cancel</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

@@ -27,3 +27,8 @@ body {
     height: 100px;
     width: auto;
 }
+
+.author a, .author a:hover {
+    text-decoration: none;
+    color: white;
+}
