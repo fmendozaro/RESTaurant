@@ -25,8 +25,8 @@ public class OrdersRepository implements daos.Orders {
 
     @Override
     public List<Order> findByUserId(Long userId) {
-        Query qry = session.createQuery("from Order where user.id = ?");
-        qry.setParameter(0, userId);
+        Query qry = session.createQuery("from Order where user.id = :userId");
+        qry.setParameter("userId", userId);
         return qry.list();
     }
 

@@ -25,8 +25,8 @@ public class ReservationsRepository implements Reservations {
 
     @Override
     public List<Reservation> findByUserId(Long userId) {
-        Query qry = session.createQuery("from Reservation where user.id = ?");
-        qry.setParameter(0, userId);
+        Query qry = session.createQuery("from Reservation where user.id = :userId");
+        qry.setParameter("userId", userId);
         return qry.list();
     }
 

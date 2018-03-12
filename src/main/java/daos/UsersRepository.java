@@ -15,8 +15,8 @@ public class UsersRepository implements Users {
 
     @Override
     public User findByUsername(String username) {
-        Query qry = session.createQuery("from User where username = ?");
-        qry.setParameter(0, username);
+        Query qry = session.createQuery("from User where username = :username");
+        qry.setParameter("username", username);
         return (User) qry.uniqueResult();
     }
 
