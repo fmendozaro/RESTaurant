@@ -37,7 +37,7 @@ public class CreateReservationServlet extends HttpServlet {
 
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("date"));
-            time = Time.valueOf(request.getParameter("time"));
+            time = Time.valueOf(request.getParameter("time")+":00");
         } catch (ParseException e) {
             e.printStackTrace();
         }
