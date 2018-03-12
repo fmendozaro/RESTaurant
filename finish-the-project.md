@@ -5,20 +5,14 @@ You will notice there are still many things left to do in our project.
 This is not an exhaustive list, use your imagination and talk to your
 instructors for guidance on feature scope.
 
-- Reservation show page
-
-    Create a page that shows the information about an individual reservation. This page
-    should show all the information about that reservation, as well as the information
-    about the user that created the reservation.
-
 - Search
 
     Implement functionality that allows users to search through the reservations in your
     database.
 
-- Show user's ads on their profile page
+- Show user's reservations on their profile page
 
-    When a user visits their profile page, they should see all of the ads they
+    When a user visits their profile page, they should see all of the reservations they
     have created.
 
 - Ensure usernames are unique
@@ -72,6 +66,12 @@ instructors for guidance on feature scope.
     allow the user to menu items online.
     
     Create a way to add menu items to the DB and edit them, having a seeder for menu items is a good idea to have something to start with.
+
+- Order show page
+
+    Create a page that shows the information about an individual order. This page
+    should show all the information about that order, as well as the information
+    about the user that created the order.
 
 - Make it pretty!
 
