@@ -12,6 +12,7 @@ public class DaoFactory {
     private static Users usersDao;
     private static Orders ordersDao;
     private static Items itemsDao;
+    private static OrderItems orderItems;
     private static SessionFactory sessionFactory;
 
     public static Session openSession() {
@@ -53,5 +54,12 @@ public class DaoFactory {
             itemsDao = new ItemsRepository(openSession());
         }
         return itemsDao;
+    }
+
+    public static OrderItems getorderItemsDao() {
+        if(orderItems == null){
+            orderItems = new OrderItemsRepository(openSession());
+        }
+        return orderItems;
     }
 }
