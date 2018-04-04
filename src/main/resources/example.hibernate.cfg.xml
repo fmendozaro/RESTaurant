@@ -23,6 +23,7 @@
         <property name="show_sql">true</property>
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.autocommit">true</property>
 
         <!-- Add mapped classes here -->
         <mapping class="models.MappedClassName"/>
