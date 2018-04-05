@@ -1,6 +1,7 @@
 package controllers;
 
 import daos.DaoFactory;
+import models.Order;
 import models.User;
 import models.Reservation;
 
@@ -17,15 +18,19 @@ public class ShowProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
         }
 
         User loggedUser = (User) request.getSession().getAttribute("user");
-
         List<Reservation> reservations = DaoFactory.getReservationsDao().findByUserId(loggedUser.getId());
+        List<Order> orders = DaoFactory.getOrdersDao().findByUserId(loggedUser.getId());
+
         request.setAttribute("reservations", reservations);
+        request.setAttribute("orders", orders);
+
         request.getRequestDispatcher("/profile.html").forward(request, response);
     }
 }
