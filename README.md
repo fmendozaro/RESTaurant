@@ -55,4 +55,4 @@ For example:
 
     All of the tags that correspond to each exercise also have a tag suffixed
     with `-solution`
-4. After the Hibernate tag, you will have to make sure you have your own `hibernate.cfg.xml` with the right credentials to your DB and should be under the `src/main/java/resorces` folder 
+4. After the Hibernate tag, you will have to make sure you have your own `hibernate.cfg.xml` with the right credentials to your DB and should be under the `src/main/java/resources` folder 
