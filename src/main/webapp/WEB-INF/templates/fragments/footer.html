@@ -2,11 +2,9 @@
 <head></head>
 <body>
     <footer th:fragment="footer" class="footer stickies text-white">
-        <div class="container">
             <!-- Using #dates : utility methods for java.util.Date objects: -->
             <span><strong>Taquero Mucho &copy; <span th:text="${#dates.year(#dates.createNow())}"></span></strong></span>
             <span class="author float-right"><a href="http://fer-mendoza.com" target="_blank">Author's website</a></span>
-        </div>
     </footer>
 </body>
 </html>
