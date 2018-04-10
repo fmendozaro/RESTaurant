@@ -15,13 +15,6 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        List<String> names = Arrays.asList("Fer", "Justin", "Luis", "Ryan", "Zach");
-
-        // Add the following properties to the request object
-        request.setAttribute("name", "Codeup");
-        request.setAttribute("names", names);
-
         request.getRequestDispatcher("/home.html").forward(request, response);
     }
 }
