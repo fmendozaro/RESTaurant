@@ -23,7 +23,7 @@ instructors for guidance on feature scope.
 
 - Clean up the code
 
-    You'll notice there is some duplicated code in our ads DAO and our users
+    You'll notice there is some duplicated code in our reservations DAO and our users
     DAO. How could you create an abstraction for this?
 
 - Dynamic navbar
@@ -52,7 +52,7 @@ instructors for guidance on feature scope.
     don't match, or if they try to create a ad without a title.
 
     Consider storing error messages temporarily in the session and having a
-    `messages.jsp` partial to handle this.
+    `messages.html` fragment to handle this.
 
 - Sticky Forms
 
@@ -60,18 +60,12 @@ instructors for guidance on feature scope.
     constraints fails, we should still see the old values in the form for
     creating a reservation, the user's input should not be erased.
 
-- Allow a user to order online
+- Allow a user to order online and implement all the CRUD functionality
 
     Create the `orders, items, orders_items` tables and implement all the backend logic necessary to
     allow the user to menu items online.
     
-    Create a way to add menu items to the DB and edit them, having a seeder for menu items is a good idea to have something to start with.
-
-- Order show page
-
-    Create a page that shows the information about an individual order. This page
-    should show all the information about that order, as well as the information
-    about the user that created the order.
+    Create a way to add menu items to the DB and edit them, creating a seeder for menu items is a good idea to have something to start with and test your app.
 
 - Make it pretty!
 
