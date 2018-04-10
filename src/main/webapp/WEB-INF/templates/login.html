@@ -6,19 +6,23 @@
 <th:block th:replace="fragments/navbar :: mainNav"></th:block>
 
 <div class="container">
-    <h1>Please Log In</h1>
-    <p class="alert alert-danger" th:if="${error == true}">Error on login</p>
-    <form action="/login" method="POST">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" type="text">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h1>Please Log In</h1>
+            <p class="alert alert-danger" th:if="${error == true}">Error on login</p>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" class="form-control" type="password">
+                </div>
+                <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            </form>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" type="password">
-        </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Log In">
-    </form>
+    </div>
 </div>
 
 <th:block th:replace="fragments/footer :: footer"></th:block>

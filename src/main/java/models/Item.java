@@ -13,6 +13,9 @@ public class Item {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String description;
+
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
@@ -21,8 +24,9 @@ public class Item {
 
     public Item(){}
 
-    public Item(String name, BigDecimal price, String url) {
+    public Item(String name, String description, BigDecimal price, String url) {
         this.name = name;
+        this.description = description;
         this.price = price;
         this.url = url;
     }
@@ -62,5 +66,13 @@ public class Item {
     @Override
     public String toString() {
         return String.format("%s: price %s, url %s", name, price, url);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -9,7 +9,7 @@ INSERT INTO reservations (num_people, date, time, user_id) VALUES (4, adddate(cu
 INSERT INTO reservations (num_people, date, time, user_id) VALUES (3, adddate(current_date(), 10), curtime(), 3);
 INSERT INTO reservations (num_people, date, time, user_id) VALUES (8, adddate(current_date(), 10), curtime(), 1);
 
-INSERT INTO items (name, price, url) VALUES ('Pozole', 7.99, 'pozole.jpg');
-INSERT INTO items (name, price, url) VALUES ('Pastor tacos', 5.99, 'pastor.jpg');
-INSERT INTO items (name, price, url) VALUES ('Enchiladas', 9.99, 'michoacanas.jpg');
-INSERT INTO items (name, price, url) VALUES ('Sopa Azteca', 6.99, 'sopa.jpg');
+INSERT INTO items (name, price, url, description) VALUES ('Pozole', 8, 'pozole.jpg', 'Pozole which means "hominy", is a traditional soup or stew from Mexico');
+INSERT INTO items (name, price, url, description) VALUES ('Pastor tacos', 6, 'pastor.jpg', 'A dish developed in Central Mexico that is based on shawarma spit-grilled meat brought by mainly Christian Lebanese immigrants to Mexico');
+INSERT INTO items (name, price, url, description) VALUES ('Enchiladas', 10, 'michoacanas.jpg', 'A corn tortilla rolled around a filling and covered with a chili pepper sauce. Enchiladas can be filled with a variety of ingredients, including various meats, cheese, beans, potatoes, vegetables or combinations.');
+INSERT INTO items (name, price, url, description) VALUES ('Sopa Azteca', 7, 'sopa.jpg', 'A traditional Mexican soup made of fried corn tortilla pieces, submerged into a broth of tomato, garlic, onion, and chile de árbol and epazote');

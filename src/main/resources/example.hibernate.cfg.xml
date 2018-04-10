@@ -7,13 +7,13 @@
     <session-factory>
         <!-- Driver and dialect -->
         <property name="connection.driver_class">
-            com.mysql.jdbc.Driver
+            com.mysql.cj.jdbc.Driver
         </property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Database connection settings -->
         <property name="connection.url">
-            jdbc:mysql://localhost/db_name?createDatabaseIfNotExist=true
+            jdbc:mysql://localhost/db_name?createDatabaseIfNotExist=true&amp;serverTimezone=UTC
         </property>
         <property name="connection.username">user</property>
         <property name="connection.password">pass</property>
@@ -23,6 +23,7 @@
         <property name="show_sql">true</property>
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.autocommit">true</property>
 
         <!-- Add mapped classes here -->
         <mapping class="models.MappedClassName"/>

@@ -21,10 +21,10 @@ public class CreateReservationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        if(!Auth.isLogged(request)){
-//            response.sendRedirect("/login");
-//            return;
-//        }
+        if(!Auth.isLogged(request)){
+            response.sendRedirect("/login");
+            return;
+        }
 
         request.getRequestDispatcher("/reservations/create.html")
                 .forward(request, response);

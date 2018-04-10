@@ -7,4 +7,5 @@ import java.util.List;
 public interface Items {
     List<Item> all();
     Long insert(Item item);
+    Item findOne(Long itemId);
 }

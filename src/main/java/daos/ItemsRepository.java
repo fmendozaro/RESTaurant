@@ -27,4 +27,11 @@ public class ItemsRepository implements Items {
         session.save(item);
         return item.getId();
     }
+
+    @Override
+    public Item findOne(Long id) {
+        Query qry = session.createQuery("from Item where id = :id");
+        qry.setParameter("id", id);
+        return (Item) qry.getSingleResult();
+    }
 }
