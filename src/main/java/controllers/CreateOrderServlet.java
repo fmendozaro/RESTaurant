@@ -66,6 +66,6 @@ public class CreateOrderServlet extends HttpServlet {
             DaoFactory.getorderItemsDao().insert(new OrderItem(newOrder, item, 1));
         }
 
-        response.sendRedirect("/orders");
+        response.sendRedirect("/profile");
     }
 }
