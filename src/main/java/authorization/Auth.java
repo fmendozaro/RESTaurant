@@ -1,9 +1,8 @@
 package authorization;
 
+import daos.DaoFactory;
 import models.User;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class Auth {
 
@@ -12,6 +11,10 @@ public class Auth {
     }
 
     public static User getLoggedUser(HttpServletRequest request){
-        return (User) request.getSession().getAttribute("user");
+        if(isLogged(request)){
+            User sessionUser = (User) request.getSession().getAttribute("user");
+            return DaoFactory.getUsersDao().findById(sessionUser.getId());
+        }
+        return null;
     }
 }
