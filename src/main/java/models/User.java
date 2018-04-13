@@ -129,4 +129,9 @@ public class User {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+
+    @Override
+    public String toString(){
+        return String.format("id: %s username: %s email: %s", this.id, this.username, this.email);
+    }
 }
