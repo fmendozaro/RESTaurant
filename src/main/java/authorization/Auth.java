@@ -10,6 +10,7 @@ public class Auth {
         return request.getSession().getAttribute("user") != null;
     }
 
+    // Get the most recent info from the DB from the logged in user
     public static User getLoggedUser(HttpServletRequest request){
         if(isLogged(request)){
             User sessionUser = (User) request.getSession().getAttribute("user");
