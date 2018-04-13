@@ -4,5 +4,6 @@ import models.User;
 
 public interface Users {
     User findByUsername(String username);
-    Long insert(User user);
+    Long save(User user);
+    User findById(long id);
 }

@@ -6,7 +6,26 @@
 <th:block th:replace="fragments/navbar :: mainNav"></th:block>
 
 <div class="container">
+
+    <div class="alert alert-success" th:if="${param.msg != null}" th:text="${param.msg}"></div>
+
     <h1>Welcome, <span th:text="${session.user.username}"></span>!</h1>
+
+    <div class="profile-info" th:class="form-group">
+        <form action="/profile/update" method="post">
+            <label for="fname">First Name:</label>
+            <input type="text" class="form-control" name="fname" id="fname" th:value="${session.user.firstName}" />
+            <label for="lname">Last Name:</label>
+            <input type="text" class="form-control" name="lname" id="lname" th:value="${session.user.lastName}" />
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" name="email" id="email" th:value="${session.user.email}" />
+            <label for="phone">Phone:</label>
+            <input type="text" class="form-control" name="phone" id="phone" th:value="${session.user.phone}" />
+            <input type="hidden" id="id" name="id" th:value="${session.user.id}">
+            <input type="submit" value="Update" class="btn btn-primary float-right" />
+        </form>
+    </div>
+
     <p>Please select from the options below</p>
 
     <div class="row">
