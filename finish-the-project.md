@@ -60,14 +60,16 @@ instructors for guidance on feature scope.
     constraints fails, we should still see the old values in the form for
     creating a reservation, the user's input should not be erased.
 
-- Allow a user to order online and implement all the CRUD functionality
+- Allow the users to place an order online and implement all the CRUD functionality
 
-    Create the `orders, items, orders_items` tables and implement all the backend logic necessary to
+    HINTS: 
+    
+    - Create the `orders, items, orders_items` tables and implement all the backend logic necessary to
     allow the user to menu items online.
     
-    Create a way to add menu items to the DB and edit them, creating a seeder for menu items is a good idea to have something to start with and test your app.
+    - Create a way to add menu items to the DB and edit them, creating a seeder for menu items is a good idea to have something to start with and test your app.
 
 - Make it pretty!
 
     While bootstrap is very helpful, our site could look much better than an out
-    of the box bootstrap website. Recall your CSS prowess and style it up!
+    of the box bootstrap website. Recall your CSS powers and style it up!
