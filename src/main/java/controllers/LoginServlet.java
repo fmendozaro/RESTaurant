@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
         }else{
             request.getSession().setAttribute("errors", errors);
+            request.getSession().setAttribute("username", username);
             response.sendRedirect("/login");
         }
     }
