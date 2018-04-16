@@ -3,7 +3,6 @@ package daos;
 
 import models.User;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class UsersRepository implements Users {

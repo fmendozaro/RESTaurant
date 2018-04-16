@@ -9,7 +9,9 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h1>Please Log In</h1>
-            <p class="alert alert-danger" th:if="${error == true}">Error on login</p>
+            <div class="alert alert-danger" th:if="${session.errors}">
+                <p th:each="e : ${session.errors}" th:text="${'- ' + e}"></p>
+            </div>
             <form action="/login" method="POST">
                 <div class="form-group">
                     <label for="username">Username</label>

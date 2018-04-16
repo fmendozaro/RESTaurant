@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
@@ -25,22 +28,39 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        List<String> errors = new LinkedList<>();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
+        boolean error = false;
 
-        if (user == null) {
-            response.sendRedirect("/login");
-            return;
+        if(username.isEmpty()){
+            errors.add("Username can't be empty");
+            error = true;
         }
 
-        boolean validAttempt = Password.check(password, user.getPassword());
+        if(password.isEmpty()){
+            errors.add("Password can't be empty");
+            error = true;
+        }
 
-        if (validAttempt) {
+        if (user == null) {
+            errors.add("User doesn't exist");
+            error = true;
+        }else{
+            if(!Password.check(password, user.getPassword())){
+                errors.add("Password doesn't match");
+                error = true;
+            }
+        }
+
+        if (!error) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         }else{
-            response.sendRedirect("/login?error=true");
+            request.getSession().setAttribute("errors", errors);
+            response.sendRedirect("/login");
         }
     }
 }
