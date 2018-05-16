@@ -32,8 +32,14 @@ public class ThymeleafServlet extends HttpServlet {
     protected String getTemplateName(HttpServletRequest request) {
         String requestPath = request.getRequestURI();
         String contextPath = request.getContextPath();
-        if (contextPath == null) {
-            contextPath = "";
+        System.out.println("contextPath = " + contextPath);
+        System.out.println("requestPath = " + requestPath);
+        if (contextPath == null || contextPath.isEmpty()) {
+            if (requestPath.equals("/")){
+                requestPath = "/home.html";
+            } else {
+                contextPath = "";
+            }
         }
 
         return requestPath.substring(contextPath.length());
